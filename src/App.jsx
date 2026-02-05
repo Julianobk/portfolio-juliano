@@ -1,14 +1,32 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import Projects from "./components/Projects";
 import About from "./components/About";
+import Projects from "./components/Projects";
 import Footer from "./components/Footer";
 import "./index.css";
 
 export default function App() {
   const [dark, setDark] = useState(true);
 
+   useEffect(() => {
+    const elements = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+  }, []); 
+  
   return (
   <div
     style={{
@@ -22,8 +40,8 @@ export default function App() {
   >
     <Header dark={dark} toggleTheme={() => setDark(!dark)} />
     <Hero dark={dark} />
-    <Projects dark={dark} />
     <About dark={dark} />
+    <Projects dark={dark} />
     <Footer />
   </div>
 );
