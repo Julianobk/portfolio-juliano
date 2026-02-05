@@ -46,7 +46,7 @@ export default function Footer() {
 const styles = {
   footer: {
     textAlign: "center",
-    padding: "50px 0",
+    padding: "20px 0",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",

@@ -17,7 +17,7 @@ export default function Header({ dark, toggleTheme }) {
       }}
     >
       <div style={styles.header}>
-        <h2 style={styles.logo}>Juliano.dev</h2>
+        <h2 style={styles.logo}>Portfólio de Juliano</h2>
 
         <button
           onClick={toggleTheme}

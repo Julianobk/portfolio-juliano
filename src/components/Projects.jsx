@@ -1,42 +1,90 @@
-import { Database, Calculator } from "lucide-react";
+import { Database, Calculator, Smartphone, Globe } from "lucide-react";
 import { motion } from "framer-motion";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay } from "swiper/modules";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
 
 export default function Projects({ dark }) {
+  // Função para renderizar o carrossel de fotos
+  const renderCarousel = (images) => (
+    <Swiper
+      modules={[Pagination, Autoplay]}
+      pagination={{ clickable: true }}
+      autoplay={{ delay: 3000 }}
+      style={styles.imagePlaceholder}
+    >
+      {images.map((img, i) => (
+        <SwiperSlide key={i}>
+          <img src={img} alt={`Slide ${i}`} style={styles.cardImage} />
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  );
+
   return (
-    <section style={styles.section}>
-      <h2>Projetos</h2>
+    <section style={styles.section} className="reveal">
+      <h2 className="projects-main-title">Projetos</h2>
 
       <div style={styles.grid}>
-        <motion.div
-          whileHover={{ y: -6 }}
-          transition={{ type: "spring", stiffness: 200 }}
-          style={{
-            ...styles.card,
-            background: dark ? styles.darkCard : styles.lightCard,
-          }}
-        >
-          <Database size={28} style={{ marginBottom: "12px" }} />
-          <h3>Feitos para Nutrir</h3>
-          <p>
-            Sistema de banco de dados para controle de estoque, vendas e
-            atendimento.
-          </p>
+        {/* Projeto 1 - Feitos para Nutrir (Com Carrossel) */}
+        <motion.div whileHover={{ y: -8 }} transition={{ type: "spring", stiffness: 200 }}
+          style={{ ...styles.card, background: dark ? styles.darkCard : styles.lightCard }}>
+          {renderCarousel([
+            "/assets/nutrir-1.png",
+            "/assets/nutrir-2.png",
+            "/assets/nutrir-3.png"
+          ])}
+          <div style={styles.headerTitle}>
+            <Database size={24} color="#60a5fa" />
+            <h3>Feitos para Nutrir</h3>
+          </div>
+          <p>Sistema de banco de dados para controle de estoque, vendas e atendimento.</p>
         </motion.div>
 
-        <motion.div
-          whileHover={{ y: -6 }}
-          transition={{ type: "spring", stiffness: 200 }}
-          style={{
-            ...styles.card,
-            background: dark ? styles.darkCard : styles.lightCard,
-          }}
-        >
-          <Calculator size={28} style={{ marginBottom: "12px" }} />
-          <h3>Calculadora Jurídica</h3>
-          <p>
-            Aplicação web para cálculos trabalhistas e jurídicos com foco em
-            precisão.
-          </p>
+        {/* Projeto 2 - Calculadora Jurídica (Com Carrossel) */}
+        <motion.div whileHover={{ y: -8 }} transition={{ type: "spring", stiffness: 200 }}
+          style={{ ...styles.card, background: dark ? styles.darkCard : styles.lightCard }}>
+          {renderCarousel([
+            "/assets/calc-1.png",
+            "/assets/calc-2.png",
+            "/assets/calc-3.png"
+          ])}
+          <div style={styles.headerTitle}>
+            <Calculator size={24} color="#60a5fa" />
+            <h3>Calculadora Jurídica</h3>
+          </div>
+          <p>Aplicação web para cálculos trabalhistas e jurídicos com foco em precisão absoluta.</p>
+        </motion.div>
+
+        {/* Projeto 3 - Android (Imagem Única) */}
+        <motion.div whileHover={{ y: -8 }} transition={{ type: "spring", stiffness: 200 }}
+          style={{ ...styles.card, background: dark ? styles.darkCard : styles.lightCard }}>
+          <div style={styles.imagePlaceholder}>
+            <img src="/assets/android.png" style={styles.cardImage} alt="Android" />
+          </div>
+          <div style={styles.headerTitle}>
+            <Smartphone size={24} color="#60a5fa" />
+            <h3>Projeto Android</h3>
+          </div>
+          <p>Meu primeiro site completo, focado na história e evolução do sistema Android.</p>
+        </motion.div>
+
+        {/* Projeto 4 - Página Institucional (Com Carrossel) */}
+        <motion.div whileHover={{ y: -8 }} transition={{ type: "spring", stiffness: 200 }}
+          style={{ ...styles.card, background: dark ? styles.darkCard : styles.lightCard }}>
+          {renderCarousel([
+            "/assets/empresa-1.png",
+            "/assets/empresa-2.png",
+            "/assets/empresa-3.png"
+          ])}
+          <div style={styles.headerTitle}>
+            <Globe size={24} color="#60a5fa" />
+            <h3>Página Institucional</h3>
+          </div>
+          <p>A vitrine digital oficial da minha empresa, focada em branding e conversão.</p>
         </motion.div>
       </div>
     </section>
@@ -44,23 +92,12 @@ export default function Projects({ dark }) {
 }
 
 const styles = {
-  section: {
-    maxWidth: "1100px",
-    margin: "0 auto 100px",
-    padding: "0 20px",
-  },
-  grid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-    gap: "24px",
-    marginTop: "40px",
-  },
-  card: {
-    padding: "28px",
-    borderRadius: "16px",
-    border: "1px solid rgba(0,0,0,0.08)",
-  },
-  darkCard:
-    "linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02))",
+  section: { maxWidth: "1200px", margin: "0 auto 100px", padding: "0 20px", textAlign: "center" },
+  grid: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(450px, 1fr))", gap: "35px", marginTop: "50px", textAlign: "left" },
+  card: { padding: "30px", borderRadius: "28px", border: "1px solid rgba(255,255,255,0.1)", minHeight: "500px", display: "flex", flexDirection: "column", boxShadow: "0 15px 35px rgba(0,0,0,0.2)" },
+  imagePlaceholder: { width: "100%", height: "250px", backgroundColor: "#0f172a", borderRadius: "18px", marginBottom: "20px", overflow: "hidden" },
+  cardImage: { width: "100%", height: "100%", objectFit: "cover" },
+  headerTitle: { display: "flex", alignItems: "center", gap: "12px", marginBottom: "10px" },
+  darkCard: "linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02))",
   lightCard: "#ffffff",
 };

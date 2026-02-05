@@ -9,9 +9,8 @@ import "./index.css";
 export default function App() {
   const [dark, setDark] = useState(true);
 
-   useEffect(() => {
+  useEffect(() => {
     const elements = document.querySelectorAll(".reveal");
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -21,28 +20,33 @@ export default function App() {
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.15 }
     );
-
     elements.forEach((el) => observer.observe(el));
-  }, []); 
-  
+    return () => observer.disconnect();
+  }, []);
+
   return (
-  <div
-    style={{
-      minHeight: "100vh",
-      background: dark
-        ? "linear-gradient(135deg, #020617, #0f172a)"
-        : "linear-gradient(135deg, #f8fafc, #e2e8f0)",
-      color: dark ? "#ffffff" : "#0f172a",
-      transition: "0.4s",
-    }}
-  >
-    <Header dark={dark} toggleTheme={() => setDark(!dark)} />
-    <Hero dark={dark} />
-    <About dark={dark} />
-    <Projects dark={dark} />
-    <Footer />
-  </div>
-);
-};
+    <div
+      className={`app-container ${dark ? "dark-theme" : "light-theme"}`}
+      style={{
+        minHeight: "100vh",
+        background: dark
+          ? "linear-gradient(135deg, #020617, #0f172a)"
+          : "linear-gradient(135deg, #f8fafc, #e2e8f0)",
+        color: dark ? "#ffffff" : "#0f172a",
+        transition: "0.4s ease",
+      }}
+    >
+      <Header dark={dark} toggleTheme={() => setDark(!dark)} />
+      
+      <main>
+        <div className="reveal"><Hero dark={dark} /></div>
+        <div className="reveal"><About /></div> {/* Removi a prop dark para focar no fixo */}
+        <div className="reveal"><Projects dark={dark} /></div>
+      </main>
+
+      <Footer />
+    </div>
+  );
+}
