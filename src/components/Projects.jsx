@@ -2,6 +2,17 @@ import { Database, Calculator, Smartphone, Globe } from "lucide-react";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
+import android1 from "../assets/Android1.png";
+import android2 from "../assets/Android2.png";
+import android3 from "../assets/Android3.png";
+import d31 from "../assets/d31.png";
+import d32 from "../assets/d32.png";
+import d33 from "../assets/d33.png";
+import fiven1 from "../assets/fiven1.png";
+import fiven2 from "../assets/fiven2.png";
+import fiven3 from "../assets/fiven3.png";
+import fiven4 from "../assets/fiven4.png";
+import fiven5 from "../assets/fiven5.png"; 
 
 // Import Swiper styles
 import "swiper/css";
@@ -9,16 +20,14 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 export default function Projects({ dark }) {
-  // Função para renderizar o carrossel estático
+  // Função para renderizar o carrossel estático (sem autoplay)
   const renderCarousel = (images) => (
     <Swiper
       modules={[Pagination, Navigation]}
       pagination={{ clickable: true }}
       navigation={true}
-      // Configurações para garantir que nada se mova sozinho
       autoplay={false} 
       loop={false}
-      allowTouchMove={true} // Permite que o usuário arraste se quiser
       style={styles.imagePlaceholder}
     >
       {images.map((img, i) => (
@@ -40,10 +49,10 @@ export default function Projects({ dark }) {
       <h2 className="projects-main-title">Projetos</h2>
 
       <div style={styles.grid}>
-        {/* Feitos para Nutrir */}
+        {/* Card 1: Feitos para Nutrir */}
         <motion.div whileHover={{ y: -10 }} transition={{ type: "spring", stiffness: 200 }}
           style={{ ...styles.card, background: dark ? styles.darkCard : styles.lightCard }}>
-          {renderCarousel(["/assets/nutrir-1.png", "/assets/nutrir-2.png", "/assets/nutrir-3.png"])}
+          {renderCarousel([fiven1, fiven2, fiven3, fiven4, fiven5])}
           <div style={styles.headerTitle}>
             <Database size={24} color="#60a5fa" />
             <h3>Feitos para Nutrir</h3>
@@ -51,7 +60,7 @@ export default function Projects({ dark }) {
           <p>Sistema de banco de dados para controle de estoque, vendas e atendimento.</p>
         </motion.div>
 
-        {/* Calculadora Jurídica */}
+        {/* Card 2: Calculadora Jurídica */}
         <motion.div whileHover={{ y: -10 }} transition={{ type: "spring", stiffness: 200 }}
           style={{ ...styles.card, background: dark ? styles.darkCard : styles.lightCard }}>
           {renderCarousel(["/assets/calc-1.png", "/assets/calc-2.png", "/assets/calc-3.png"])}
@@ -62,35 +71,34 @@ export default function Projects({ dark }) {
           <p>Aplicação web para cálculos trabalhistas e jurídicos com foco em precisão absoluta.</p>
         </motion.div>
 
-        {/* Projeto Android */}
-        <motion.div whileHover={{ y: -10 }} transition={{ type: "spring", stiffness: 200 }}
-          style={{ ...styles.card, background: dark ? styles.darkCard : styles.lightCard }}>
-          <div style={{ ...styles.imagePlaceholder, overflow: 'hidden' }}>
-            <motion.img 
-               whileHover={{ scale: 1.05 }} 
-               transition={{ duration: 0.4 }}
-               src="/assets/android.png" 
-               style={styles.cardImage} 
-               alt="Android" 
-            />
-          </div>
-          <div style={styles.headerTitle}>
-            <Smartphone size={24} color="#60a5fa" />
-            <h3>Projeto Android</h3>
-          </div>
-          <p>Meu primeiro site completo, focado na história e evolução do sistema Android.</p>
-        </motion.div>
+        {/* Card 3: Projeto Android (Agora com Carrossel) */}
+        {/* Card 3: Projeto Android */}
+<motion.div whileHover={{ y: -10 }} transition={{ type: "spring", stiffness: 200 }}
+  style={{ ...styles.card, background: dark ? styles.darkCard : styles.lightCard }}>
+  {renderCarousel([android1, android2, android3])}
+  <div style={styles.headerTitle}>
+    <Smartphone size={24} color="#60a5fa" />
+    <h3>Projeto Android</h3>
+  </div>
+  <p>Meu primeiro site completo, focado na história e evolução do sistema Android.</p>
+</motion.div>
 
-        {/* Página Institucional */}
-        <motion.div whileHover={{ y: -10 }} transition={{ type: "spring", stiffness: 200 }}
-          style={{ ...styles.card, background: dark ? styles.darkCard : styles.lightCard }}>
-          {renderCarousel(["/assets/empresa-1.png", "/assets/empresa-2.png", "/assets/empresa-3.png"])}
-          <div style={styles.headerTitle}>
-            <Globe size={24} color="#60a5fa" />
-            <h3>Página Institucional</h3>
-          </div>
-          <p>A vitrine digital oficial da minha empresa, focada em branding e conversão.</p>
-        </motion.div>
+        
+        <motion.div 
+  whileHover={{ y: -10 }} 
+  transition={{ type: "spring", stiffness: 200 }}
+  style={{ ...styles.card, background: dark ? styles.darkCard : styles.lightCard }}
+>
+  {renderCarousel([d33, d31, d32])}
+  <div style={styles.headerTitle}>
+    <Globe size={24} color="#60a5fa" />
+    <h3>Página Institucional</h3>
+  </div>
+  <p>
+    A vitrine digital oficial da minha empresa, focada em branding, 
+    autoridade visual e conversão de leads.
+  </p>
+</motion.div>
       </div>
     </section>
   );
