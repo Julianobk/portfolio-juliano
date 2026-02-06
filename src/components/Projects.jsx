@@ -95,46 +95,6 @@ export default function Projects({ dark }) {
         </motion.div>
 
         {/* Card 2: Calculadora Jurídica */}
-        <motion.div whileHover={{ y: -10 }} transition={{ type: "spring", stiffness: 200 }}
-          style={{ ...styles.card, background: dark ? styles.darkCard : styles.lightCard }}>
-          {renderCarousel(["/assets/calc-1.png", "/assets/calc-2.png", "/assets/calc-3.png"])}
-          <div style={styles.headerTitle}>
-            <Calculator size={24} color="#60a5fa" />
-            <h3>Calculadora Jurídica</h3>
-          </div>
-          <p>Aplicação web para cálculos trabalhistas e jurídicos com foco em precisão absoluta.</p>
-        </motion.div>
-
-        {/* Card 3: Projeto Android (Agora com Carrossel) */}
-        {/* Card 3: Projeto Android */}
-<motion.div whileHover={{ y: -10 }} transition={{ type: "spring", stiffness: 200 }}
-  style={{ ...styles.card, background: dark ? styles.darkCard : styles.lightCard }}>
-  {renderCarousel([android1, android2, android3])}
-  <div style={styles.headerTitle}>
-    <Smartphone size={24} color="#60a5fa" />
-    <h3>Projeto Android</h3>
-  </div>
-  <p>Meu primeiro site completo, focado na história e evolução do sistema Android.</p>
-  <section className="technologies">
-  <h2>Tecnologias Utilizadas</h2><br />
-
-  <div className="tech-grid">
-    
-    <div className="tech-card">
-      <FaHtml5 size={42} style={{ color: "#e34c26" }} />
-      
-    </div>
-
-    <div className="tech-card">
-      <FaCss3Alt size={42} style={{ color: "#264de4" }} />
-      
-    </div>  
-    </div>
-
-</section>
-</motion.div>
-
-        
         <motion.div 
   whileHover={{ y: -10 }} 
   transition={{ type: "spring", stiffness: 200 }}
@@ -143,11 +103,11 @@ export default function Projects({ dark }) {
   {renderCarousel([d33, d31, d32])}
   <div style={styles.headerTitle}>
     <Globe size={24} color="#60a5fa" />
-    <h3>Página Institucional</h3>
+    <h3>D3 Enterprise</h3>
   </div>
   <p>
-    A vitrine digital oficial da minha empresa, focada em branding, 
-    autoridade visual e conversão de leads.
+    Desenvolvimento de uma página institucional moderna e responsiva, focada em branding, experiência do usuário e conversão.
+O projeto prioriza performance, organização visual e clareza na comunicação, utilizando tecnologias web modernas para garantir escalabilidade e fácil manutenção.
   </p>
   <section className="technologies">
   <h2>Tecnologias Utilizadas</h2>
@@ -171,6 +131,39 @@ export default function Projects({ dark }) {
     </div>
     </section>
 </motion.div>
+
+        {/* Card 3: Projeto Android (Agora com Carrossel) */}
+        {/* Card 3: Projeto Android */}
+<motion.div whileHover={{ y: -10 }} transition={{ type: "spring", stiffness: 200 }}
+  style={{ ...styles.card, background: dark ? styles.darkCard : styles.lightCard }}>
+  {renderCarousel([android1, android2, android3])}
+  <div style={styles.headerTitle}>
+    <Smartphone size={24} color="#60a5fa" />
+    <h3>Projeto Android</h3>
+  </div>
+  <p>Meu primeiro site completo, desenvolvido como projeto de aprendizado, com foco na história e evolução do sistema Android.
+Esse projeto marcou meu início no desenvolvimento web, aplicando na prática conceitos fundamentais de estruturação com HTML e estilização com CSS, além de organização de conteúdo e responsividade básica.</p>
+  <section className="technologies">
+  <h2>Tecnologias Utilizadas</h2><br />
+
+  <div className="tech-grid">
+    
+    <div className="tech-card">
+      <FaHtml5 size={42} style={{ color: "#e34c26" }} />
+      
+    </div>
+
+    <div className="tech-card">
+      <FaCss3Alt size={42} style={{ color: "#264de4" }} />
+      
+    </div>  
+    </div>
+
+</section>
+</motion.div>
+
+        
+        
       </div>
       
     </section>
