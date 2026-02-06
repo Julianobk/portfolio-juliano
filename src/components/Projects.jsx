@@ -2,6 +2,7 @@ import { Database, Calculator, Smartphone, Globe } from "lucide-react";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
+import { FaJava, FaHtml5, FaCss3Alt, FaJsSquare, FaDatabase } from "react-icons/fa";
 import android1 from "../assets/Android1.png";
 import android2 from "../assets/Android2.png";
 import android3 from "../assets/Android3.png";
@@ -23,6 +24,7 @@ export default function Projects({ dark }) {
   // Função para renderizar o carrossel estático (sem autoplay)
   const renderCarousel = (images) => (
     <Swiper
+    className={dark ? "swiper-dark" : "swiper-light"}
       modules={[Pagination, Navigation]}
       pagination={{ clickable: true }}
       navigation={true}
@@ -55,9 +57,41 @@ export default function Projects({ dark }) {
           {renderCarousel([fiven1, fiven2, fiven3, fiven4, fiven5])}
           <div style={styles.headerTitle}>
             <Database size={24} color="#60a5fa" />
-            <h3>Feitos para Nutrir</h3>
+            <h3>FIVEN - Feitos Para Nutrir</h3>
           </div>
-          <p>Sistema de banco de dados para controle de estoque, vendas e atendimento.</p>
+          <p>FIVEN – Feitos Para Nutrir é um sistema de gestão e banco de dados desenvolvido para centralizar e automatizar processos de controle de estoque, vendas e clientes. O projeto visa aumentar a eficiência operacional, reduzir erros manuais e apoiar a tomada de decisões estratégicas por meio de dados organizados, seguros e acessíveis.</p>
+        <section className="technologies">
+  <h2>Tecnologias Utilizadas</h2>
+<br />
+  <div className="tech-grid">
+    <div className="tech-card">
+      <FaJava size={42} style={{ color: "#f89820" }} />
+      
+    </div>
+
+    <div className="tech-card">
+      <FaHtml5 size={42} style={{ color: "#e34c26" }} />
+      
+    </div>
+
+    <div className="tech-card">
+      <FaCss3Alt size={42} style={{ color: "#264de4" }} />
+      
+    </div>
+
+    <div className="tech-card">
+      <FaJsSquare size={42} style={{ color: "#f0db4f" }} />
+      
+    </div>
+
+    <div className="tech-card">
+      <FaDatabase size={42} style={{ color: "#00758f" }} />
+      
+    </div>
+  </div>
+</section>
+
+
         </motion.div>
 
         {/* Card 2: Calculadora Jurídica */}
@@ -81,6 +115,23 @@ export default function Projects({ dark }) {
     <h3>Projeto Android</h3>
   </div>
   <p>Meu primeiro site completo, focado na história e evolução do sistema Android.</p>
+  <section className="technologies">
+  <h2>Tecnologias Utilizadas</h2><br />
+
+  <div className="tech-grid">
+    
+    <div className="tech-card">
+      <FaHtml5 size={42} style={{ color: "#e34c26" }} />
+      
+    </div>
+
+    <div className="tech-card">
+      <FaCss3Alt size={42} style={{ color: "#264de4" }} />
+      
+    </div>  
+    </div>
+
+</section>
 </motion.div>
 
         
@@ -98,8 +149,30 @@ export default function Projects({ dark }) {
     A vitrine digital oficial da minha empresa, focada em branding, 
     autoridade visual e conversão de leads.
   </p>
+  <section className="technologies">
+  <h2>Tecnologias Utilizadas</h2>
+<br />
+<div className="tech-grid">
+    
+    <div className="tech-card">
+      <FaHtml5 size={42} style={{ color: "#e34c26" }} />
+      
+    </div>
+
+    <div className="tech-card">
+      <FaCss3Alt size={42} style={{ color: "#264de4" }} />
+      
+    </div>
+
+    <div className="tech-card">
+      <FaJsSquare size={42} style={{ color: "#f0db4f" }} />
+      
+    </div>    
+    </div>
+    </section>
 </motion.div>
       </div>
+      
     </section>
   );
 }

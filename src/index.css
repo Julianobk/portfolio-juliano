@@ -255,6 +255,23 @@ body {
   letter-spacing: 2px;
   color: #60a5fa !important;
 }
+/* Modo claro = preto */
+.swiper-light .swiper-button-next,
+.swiper-light .swiper-button-prev,
+.swiper-light .swiper-button-next::after,
+.swiper-light .swiper-button-prev::after {
+  color: #000 !important;
+}
+
+/* Modo escuro = branco */
+.swiper-dark .swiper-button-next,
+.swiper-dark .swiper-button-prev,
+.swiper-dark .swiper-button-next::after,
+.swiper-dark .swiper-button-prev::after {
+  color: #fff !important;
+}
+
+
 
 .projects-main-title {
   font-size: 3rem; /* Tamanho maior para o título */
@@ -282,7 +299,41 @@ body {
   line-height: 1.6;
   color: var(--text-sub);
 }
+.project-card {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px;
+  box-sizing: border-box;
+  overflow: hidden; /* MUITO IMPORTANTE */
+}
+.project-slider {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
 
+
+.technologies {
+  width: 100%;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.tech-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+  flex-wrap: nowrap;
+}
+
+
+
+.tech-card:hover {
+  opacity: 1;
+  transform: translateY(-4px);
+}
 
 /* --- Ajuste Mobile --- */
 @media (max-width: 850px) {
